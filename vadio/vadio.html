@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>video</title>
+		<link rel="stylesheet" type="text/css" href="vadio.css"/>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<video width="800" height="" >
+			<source src="mov_bbb.mp4" type="video/mp4"></source>
+			<source src="myvideo.ogv" type="video/ogg"></source>
+			<source src="myvideo.webm" type="video/webm"></source>
+			<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+				<param name="movie" value="myvideo.swf" />
+				<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+			</object>
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		</video>
+			<div class="control">
+				<i class="iconfont start">&#xe502;</i>
+				<p><span class="nowtime">00:00</span>/<span class="alltime">03:10</span></p>
+				<div class="progress">
+					<div class="progress2">
+						
+					</div>
+					<div class="progress_bar">
+						
+					</div>
+				</div>
+				<i class="iconfont voice" style="margin-top:0 ;">&#xf00b1;</i>
+				<div class="progress" style="width: 80px;">
+					<div class="progress2" style="width: 0;">
+						
+					</div>
+					<div class="progress_bar">
+						
+					</div>
+				</div>
+				<i class="iconfont screen" style="margin-top: 0;">&#xe609;</i>
+			</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$(".start").click(function(){
+		if($(".start").attr("start")=="false"||$(".start").attr("start")==undefined){
+			$("video").get(0).play();
+			$(".start").attr("start","true");
+			$(".start").html("&#xe96b;");
+		}else{
+			$("video").get(0).pause();
+			$(".start").attr("start","false");
+			$(".start").html("&#xe502;");
+		}
+	})
+	setTimeout(function(){
+		var alltime_minutes = parseInt($("video").get(0).duration/60);
+		var alltime_seconds = parseInt($("video").get(0).duration%60);
+		console.log(alltime_minutes,alltime_seconds)
+		if(alltime_minutes<10){
+			alltime_minutes = "0" + alltime_minutes;
+		}
+		if(alltime_seconds<10){
+			alltime_seconds = "0" + alltime_seconds; 
+		}
+		$(".alltime").text(alltime_minutes + ":" +alltime_seconds);
+		
+		
+		
+	},200)
+	setInterval(function(){
+		var nowtime_minutes = parseInt($("video").get(0).currentTime/60);
+		var nowtime_seconds = parseInt($("video").get(0).currentTime%60);
+		if(nowtime_minutes<10){
+			nowtime_minutes = "0" + nowtime_minutes;
+		}
+		if(nowtime_seconds<10){
+			nowtime_seconds = "0" + nowtime_seconds;
+		}
+		$(".nowtime").text(nowtime_minutes + ":" + nowtime_seconds)
+		var persent = $("video").get(0).currentTime/$("video").get(0).duration;
+		$(".progress2").eq(0).width(persent*500);
+		$(".progress_bar").eq(0).css("left",persent*500+"px")
+	},1000)
+	$(".progress_bar").eq(0).mousedown(function(){
+		$(document).mousemove(function(e){
+			$(".progress_bar").eq(0).css({
+				"left" : Math.max(0,Math.min(e.clientX-$(".progress").eq(0).offset().left,500-$(".progress_bar").width())),
+			})
+			$(".progress2").eq(0).width(parseInt($(".progress_bar").eq(0).css("left")));
+			var persent = parseInt($(".progress_bar").eq(0).css("left"))/500;
+			$("video").get(0).currentTime = persent*$("video").get(0).duration;
+				
+		})
+		$(document).mouseup(function(){
+			$(document).unbind("mousemove")
+		})
+	})
+	$(".progress_bar").eq(1).mousedown(function(){
+		$(document).mousemove(function(e){
+			$(".progress_bar").eq(1).css({
+				"left" : Math.max(0,Math.min(e.clientX-$(".progress").eq(1).offset().left,80-$(".progress_bar").width())),
+			})
+			$(".progress2").eq(1).width(parseInt($(".progress_bar").eq(1).css("left")));
+			if($(".progress2").eq(1).width()>60){
+				$(".voice").html("&#xf00b1;");
+			}
+			else if($(".progress2").eq(1).width()<=60&&$(".progress2").eq(1).width()>30){
+				$(".voice").html("&#xe501;");
+			}else if($(".progress2").eq(1).width()==0){
+				$(".voice").html("&#xf002d;");
+			}else{
+				$(".voice").html("&#xe684;");
+			}
+			var persent = parseInt($(".progress_bar").eq(1).css("left"))/80;
+			$("video").get(0).volume = persent;
+		})
+		$(document).mouseup(function(){
+			$(document).unbind("mousemove")
+		})
+	})
+	$(".progress").eq(0).click(function(e){
+		$(".progress_bar").eq(0).css({
+			"left" : e.clientX-$(".progress").eq(0).offset().left,
+		})
+		var persent = parseInt($(".progress_bar").eq(0).css("left"))/500;
+		$("video").get(0).currentTime = persent*$("video").get(0).duration;
+	})
+	$(".screen").click(function(){
+		$("video").get(0).webkitRequestFullScreen();
+	})
+</script>
