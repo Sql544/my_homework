@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="mp3.css"/>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<title>MP3</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="play_box">
+				<div class="play_round">
+					<div class="play_img">
+						<img src="images/img.jpg"/>
+					</div>
+				</div>
+			</div>
+			<div class="chacha">
+				<img src="images/cd_tou.png"/>
+			</div>
+			<div class="top_right">
+				<div class="words">
+					<p class="title">丑八怪</p>
+					<p class="name">薛之谦</p>
+				</div>
+				<div class="buttons">
+					<div class="left_buttons">
+						<i class="iconfont previous">&#xe60b;</i>
+						<i class="iconfont start" start=false>&#xe618;</i>
+						<i class="iconfont next">&#xe603;</i>
+					</div>
+					<div class="right_buttons">
+						<i class="iconfont random">&#xe612;</i>
+						<i class="iconfont restart">&#xe622;</i>
+						<i class="iconfont voice">&#xe600;
+							<div class="voice_progress">
+								<div class="voice_progress2">
+							
+								</div>
+							</div>
+						</i>
+					</div>
+					
+				</div>
+				<div class="progress">
+					<div class="progress2">
+						
+					</div>
+				</div>
+				<div class="time">
+					<p><span class="nowtime">00:00</span>/<span class="alltime">4:21</span></p>
+				</div>
+			</div>
+			<div class="music_lists">
+				<ul>
+					<li>
+						<p class="left">丑八怪</p>
+						<p class="right">薛之谦</p>
+					</li>
+					<li>
+						<p class="left">认真的雪</p>
+						<p class="right">薛之谦</p>
+					</li>
+					<li>
+						<p class="left">绅     士</p>
+						<p class="right">薛之谦</p>
+					</li>
+					<li>
+						<p class="left">一     半</p>
+						<p class="right">薛之谦</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<audio src="mp3/丑八怪 - 薛之谦.mp3"></audio>
+	</body>
+</html>
+<script type="text/javascript">
+	var audio1 = document.getElementsByTagName("audio")[0];
+	var start_btn = document.getElementsByClassName("start")[0];
+	var alltime = document.getElementsByClassName("alltime")[0];
+	var nowtime = document.getElementsByClassName("nowtime")[0];
+	var play_img = document.getElementsByClassName("play_img")[0];
+	var chacha = document.getElementsByClassName("chacha")[0];
+	var progress = document.getElementsByClassName("progress2")[0];
+	var replay = document.getElementsByClassName("iconfont restart")[0];
+	var random = document.getElementsByClassName("iconfont random")[0];
+	var title = document.getElementsByClassName("title")[0];
+	var name = document.getElementsByClassName("name")[0];
+	var previous = document.getElementsByClassName("iconfont previous")[0];
+	var next = document.getElementsByClassName("iconfont next")[0];
+	var voice = document.getElementsByClassName("voice_progress")[0];
+	var music = [
+	{src:"mp3/丑八怪 - 薛之谦.mp3",title:"丑八怪",name:"薛之谦"},{src:"mp3/认真的雪 - 薛之谦.mp3",title:"认真的雪",name:"薛之谦"},{src:"mp3/绅士 - 薛之谦.mp3",title:"绅士",name:"薛之谦"},{src:"mp3/一半 - 薛之谦.mp3",title:"一半",name:"薛之谦"}];
+	start_btn.addEventListener("click",function(){
+		console.log(this.getAttribute("start"))
+		if(this.getAttribute("start")!="false"){
+			this.setAttribute("start","false");
+			this.innerHTML = "&#xe618";
+			audio1.pause();
+			play_img.className = "play_img";
+			chacha.className = "chacha chacha_back";
+		}else{
+			audio1.play();
+			this.setAttribute("start","true");
+			this.innerHTML="&#xe605;";
+			getAlltime();
+//			var deg = 1;
+//			var rotate = setInterval(function(){
+//				play_img.style.transform = "rotate("+ deg +"deg)";
+//				deg+=2;
+//				console.log(deg);
+//			},100)
+			play_img.className = "play_img img_rotate";
+			chacha.className = "chacha chacha_rotate";
+		}
+	})
+	voice.addEventListener("click",function(e){
+		if(e.target.className=="voice_progress"){
+			$(".voice_progress2").height(60-e.offsetY);
+		}else{
+			$(".voice_progress2").height($(".voice_progress2").height()-e.offsetY);
+		}
+		audio1.volume = $(".voice_progress2").height()/60;
+	})
+	replay.addEventListener("click",function(){
+		audio1.load();
+		audio1.play();
+		play_img.className = "play_img";
+		chacha.className = "chacha chacha_back";
+		setTimeout(function(){
+			start_btn.setAttribute("start","true");
+			start_btn.innerHTML="&#xe605;";
+			play_img.className = "play_img img_rotate";
+			chacha.className = "chacha chacha_rotate";
+			getAlltime();
+		},1000)
+	})
+	random.addEventListener("click",function(){
+		var random_num = parseInt(Math.random()*4);
+		audio1.src = music[random_num].src;
+		title.innerText = music[random_num].title;
+		name.innerText = music[random_num].name;
+		audio1.load();
+		audio1.play();
+		play_img.className = "play_img";
+		chacha.className = "chacha chacha_back";
+		setTimeout(function(){
+			start_btn.setAttribute("start","true");
+			start_btn.innerHTML="&#xe605;";
+			play_img.className = "play_img img_rotate";
+			chacha.className = "chacha chacha_rotate";
+			getAlltime();
+		},1000)
+	})
+	previous.addEventListener("click",function(){
+		for(var i in music){
+			if(music[i].src == audio1.getAttribute("src")){
+				var index = i;
+			}
+		}
+		if(index==0){
+			index=4;
+		}
+		index--;
+		audio1.src = music[index].src;
+		title.innerText = music[index].title;
+		name.innerText = music[index].name;
+		audio1.load();
+		audio1.play();
+		play_img.className = "play_img";
+		chacha.className = "chacha chacha_back";
+		setTimeout(function(){
+			start_btn.setAttribute("start","true");
+			start_btn.innerHTML="&#xe605;";
+			play_img.className = "play_img img_rotate";
+			chacha.className = "chacha chacha_rotate";
+			getAlltime();
+		},1000)
+	})
+	next.addEventListener("click",function(){
+		for(var i in music){
+			if(music[i].src == audio1.getAttribute("src")){
+				var index = i;
+			}
+		}
+		if(index==3){
+			index=-1;
+		}
+		index++;
+		audio1.src = music[index].src;
+		title.innerText = music[index].title;
+		name.innerText = music[index].name;
+		audio1.load();
+		audio1.play();
+		play_img.className = "play_img";
+		chacha.className = "chacha chacha_back";
+		setTimeout(function(){
+			start_btn.setAttribute("start","true");
+			start_btn.innerHTML="&#xe605;";
+			play_img.className = "play_img img_rotate";
+			chacha.className = "chacha chacha_rotate";
+			getAlltime();
+		},1000)
+	})
+	$(".progress").click(function(e){
+		audio1.currentTime = parseInt(e.offsetX/400 * audio1.duration);
+		console.log(e.offsetX/400 * audio1.duration);
+	})
+	setInterval(function(){
+		var nowtime_minutes = parseInt(parseInt(audio1.currentTime)/60);
+		var nowtime_seconds = parseInt(audio1.currentTime)%60;
+		if(nowtime_minutes<10){
+			nowtime_minutes = "0" + nowtime_minutes;
+		}
+		if(nowtime_seconds<10){
+			nowtime_seconds = "0" + nowtime_seconds;
+		}
+		nowtime.innerText = nowtime_minutes + ":" + nowtime_seconds;
+		var persent = audio1.currentTime/audio1.duration*100 + "%";
+		progress.style.width = persent;
+		
+	},1000)
+	$("ul li").each(function(){
+		$(this).click(function(){
+			for(var i in music){
+				if(music[i].title == $(this).find(".left").text().replace(/\s/g,"")){
+					var index = i;
+				}
+			}
+			
+			audio1.src = music[index].src;
+			title.innerText = music[index].title;
+			name.innerText = music[index].name;
+			audio1.load();
+			audio1.play();
+			play_img.className = "play_img";
+			chacha.className = "chacha chacha_back";
+			setTimeout(function(){
+				start_btn.setAttribute("start","true");
+				start_btn.innerHTML="&#xe605;";
+				play_img.className = "play_img img_rotate";
+				chacha.className = "chacha chacha_rotate";
+				getAlltime();
+			},1000)
+		})
+	})
+	function getAlltime(){
+		var alltime_minutes = parseInt(parseInt(audio1.duration)/60);
+		var alltime_seconds = parseInt(audio1.duration)%60;
+		if(alltime_minutes<10){
+			alltime_minutes = "0" + alltime_minutes;
+		}
+		if(alltime_seconds<10){
+			alltime_seconds = "0" + alltime_seconds;
+		}
+		alltime.innerText = alltime_minutes + ":" + alltime_seconds;
+	}
+</script>

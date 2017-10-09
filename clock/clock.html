@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="500" height="500">
+			<script type="text/javascript">
+				function clock(deg,deg2){
+					var canvas = document.getElementById("mycanvas");
+					var context = canvas.getContext("2d");
+					context.clearRect(0,0, canvas.width, canvas.height);
+					context.save()
+					context.beginPath();
+					context.arc(200,200,100,0,2*Math.PI,true);
+					context.stroke();
+					context.closePath();
+					context.restore();
+					
+					context.save()
+					context.strokeStyle = "goldenrod"
+					context.moveTo(200,120);
+					context.lineTo(200,100);
+					context.moveTo((200+Math.cos(1/3*Math.PI)*80),200-Math.sin(1/3*Math.PI)*80);
+					context.lineTo((200+Math.cos(1/3*Math.PI)*100),200-Math.sin(1/3*Math.PI)*100);
+					context.moveTo((200+Math.cos(1/6*Math.PI)*80),200-Math.sin(1/6*Math.PI)*80);
+					context.lineTo((200+Math.cos(1/6*Math.PI)*100),200-Math.sin(1/6*Math.PI)*100);
+					context.moveTo((200+Math.cos(0*Math.PI)*80),200-Math.sin(0*Math.PI)*80);
+					context.lineTo((200+Math.cos(0*Math.PI)*100),200-Math.sin(0*Math.PI)*100);
+					context.moveTo((200+Math.cos(2/3*Math.PI)*80),200-Math.sin(2/3*Math.PI)*80);
+					context.lineTo((200+Math.cos(2/3*Math.PI)*100),200-Math.sin(2/3*Math.PI)*100);
+					context.moveTo((200+Math.cos(5/6*Math.PI)*80),200-Math.sin(5/6*Math.PI)*80);
+					context.lineTo((200+Math.cos(5/6*Math.PI)*100),200-Math.sin(5/6*Math.PI)*100);
+					context.moveTo((200+Math.cos(1*Math.PI)*80),200-Math.sin(1*Math.PI)*80);
+					context.lineTo((200+Math.cos(1*Math.PI)*100),200-Math.sin(1*Math.PI)*100);
+					context.moveTo((200+Math.cos(-1/6*Math.PI)*80),200-Math.sin(-1/6*Math.PI)*80);
+					context.lineTo((200+Math.cos(-1/6*Math.PI)*100),200-Math.sin(-1/6*Math.PI)*100);
+					context.moveTo((200+Math.cos(-1/3*Math.PI)*80),200-Math.sin(-1/3*Math.PI)*80);
+					context.lineTo((200+Math.cos(-1/3*Math.PI)*100),200-Math.sin(-1/3*Math.PI)*100);
+					context.moveTo((200+Math.cos(-1/6*Math.PI)*80),200-Math.sin(-1/6*Math.PI)*80);
+					context.lineTo((200+Math.cos(-1/6*Math.PI)*100),200-Math.sin(-1/6*Math.PI)*100);
+					context.moveTo((200+Math.cos(-1/2*Math.PI)*80),200-Math.sin(-1/2*Math.PI)*80);
+					context.lineTo((200+Math.cos(-1/2*Math.PI)*100),200-Math.sin(-1/2*Math.PI)*100);
+					context.moveTo((200+Math.cos(-2/3*Math.PI)*80),200-Math.sin(-2/3*Math.PI)*80);
+					context.lineTo((200+Math.cos(-2/3*Math.PI)*100),200-Math.sin(-2/3*Math.PI)*100);
+					context.moveTo((200+Math.cos(-5/6*Math.PI)*80),200-Math.sin(-5/6*Math.PI)*80);
+					context.lineTo((200+Math.cos(-5/6*Math.PI)*100),200-Math.sin(-5/6*Math.PI)*100);
+					context.stroke();
+					context.closePath();
+					
+					context.moveTo((200+Math.cos(1/30*Math.PI)*90),200-Math.sin(1/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(1/30*Math.PI)*100),200-Math.sin(1/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(2/30*Math.PI)*90),200-Math.sin(2/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(2/30*Math.PI)*100),200-Math.sin(2/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(3/30*Math.PI)*90),200-Math.sin(3/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(3/30*Math.PI)*100),200-Math.sin(3/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(4/30*Math.PI)*90),200-Math.sin(4/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(4/30*Math.PI)*100),200-Math.sin(4/30*Math.PI)*100);
+					
+					context.moveTo((200+Math.cos(6/30*Math.PI)*90),200-Math.sin(6/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(6/30*Math.PI)*100),200-Math.sin(6/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(7/30*Math.PI)*90),200-Math.sin(7/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(7/30*Math.PI)*100),200-Math.sin(7/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(8/30*Math.PI)*90),200-Math.sin(8/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(8/30*Math.PI)*100),200-Math.sin(8/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(9/30*Math.PI)*90),200-Math.sin(9/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(9/30*Math.PI)*100),200-Math.sin(9/30*Math.PI)*100);
+					
+					context.moveTo((200+Math.cos(11/30*Math.PI)*90),200-Math.sin(11/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(11/30*Math.PI)*100),200-Math.sin(11/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(12/30*Math.PI)*90),200-Math.sin(12/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(12/30*Math.PI)*100),200-Math.sin(12/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(13/30*Math.PI)*90),200-Math.sin(13/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(13/30*Math.PI)*100),200-Math.sin(13/30*Math.PI)*100);
+					context.moveTo((200+Math.cos(14/30*Math.PI)*90),200-Math.sin(14/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(14/30*Math.PI)*100),200-Math.sin(14/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(16/30*Math.PI)*90),200-Math.sin(16/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(16/30*Math.PI)*100),200-Math.sin(16/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(17/30*Math.PI)*90),200-Math.sin(17/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(17/30*Math.PI)*100),200-Math.sin(17/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(18/30*Math.PI)*90),200-Math.sin(18/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(18/30*Math.PI)*100),200-Math.sin(18/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(19/30*Math.PI)*90),200-Math.sin(19/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(19/30*Math.PI)*100),200-Math.sin(19/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(21/30*Math.PI)*90),200-Math.sin(21/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(21/30*Math.PI)*100),200-Math.sin(21/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(22/30*Math.PI)*90),200-Math.sin(22/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(22/30*Math.PI)*100),200-Math.sin(22/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(23/30*Math.PI)*90),200-Math.sin(23/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(23/30*Math.PI)*100),200-Math.sin(23/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(24/30*Math.PI)*90),200-Math.sin(24/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(24/30*Math.PI)*100),200-Math.sin(24/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(26/30*Math.PI)*90),200-Math.sin(26/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(26/30*Math.PI)*100),200-Math.sin(26/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(27/30*Math.PI)*90),200-Math.sin(27/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(27/30*Math.PI)*100),200-Math.sin(27/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(28/30*Math.PI)*90),200-Math.sin(28/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(28/30*Math.PI)*100),200-Math.sin(28/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(29/30*Math.PI)*90),200-Math.sin(29/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(29/30*Math.PI)*100),200-Math.sin(29/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(-1/30*Math.PI)*90),200-Math.sin(-1/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-1/30*Math.PI)*100),200-Math.sin(-1/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-2/30*Math.PI)*90),200-Math.sin(-2/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-2/30*Math.PI)*100),200-Math.sin(-2/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-3/30*Math.PI)*90),200-Math.sin(-3/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-3/30*Math.PI)*100),200-Math.sin(-3/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-4/30*Math.PI)*90),200-Math.sin(-4/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-4/30*Math.PI)*100),200-Math.sin(-4/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(-6/30*Math.PI)*90),200-Math.sin(-6/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-6/30*Math.PI)*100),200-Math.sin(-6/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-7/30*Math.PI)*90),200-Math.sin(-7/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-7/30*Math.PI)*100),200-Math.sin(-7/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-8/30*Math.PI)*90),200-Math.sin(-8/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-8/30*Math.PI)*100),200-Math.sin(-8/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-9/30*Math.PI)*90),200-Math.sin(-9/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-9/30*Math.PI)*100),200-Math.sin(-9/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(-11/30*Math.PI)*90),200-Math.sin(-11/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-11/30*Math.PI)*100),200-Math.sin(-11/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-12/30*Math.PI)*90),200-Math.sin(-12/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-12/30*Math.PI)*100),200-Math.sin(-12/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-13/30*Math.PI)*90),200-Math.sin(-13/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-13/30*Math.PI)*100),200-Math.sin(-13/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-14/30*Math.PI)*90),200-Math.sin(-14/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-14/30*Math.PI)*100),200-Math.sin(-14/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(-16/30*Math.PI)*90),200-Math.sin(-16/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-16/30*Math.PI)*100),200-Math.sin(-16/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-17/30*Math.PI)*90),200-Math.sin(-17/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-17/30*Math.PI)*100),200-Math.sin(-17/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-18/30*Math.PI)*90),200-Math.sin(-18/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-18/30*Math.PI)*100),200-Math.sin(-18/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-19/30*Math.PI)*90),200-Math.sin(-19/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-19/30*Math.PI)*100),200-Math.sin(-19/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(-21/30*Math.PI)*90),200-Math.sin(-21/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-21/30*Math.PI)*100),200-Math.sin(-21/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-22/30*Math.PI)*90),200-Math.sin(-22/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-22/30*Math.PI)*100),200-Math.sin(-22/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-23/30*Math.PI)*90),200-Math.sin(-23/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-23/30*Math.PI)*100),200-Math.sin(-23/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-24/30*Math.PI)*90),200-Math.sin(-24/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-24/30*Math.PI)*100),200-Math.sin(-24/30*Math.PI)*100);
+					context.stroke();
+					
+					context.moveTo((200+Math.cos(-26/30*Math.PI)*90),200-Math.sin(-26/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-26/30*Math.PI)*100),200-Math.sin(-26/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-27/30*Math.PI)*90),200-Math.sin(-27/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-27/30*Math.PI)*100),200-Math.sin(-27/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-28/30*Math.PI)*90),200-Math.sin(-28/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-28/30*Math.PI)*100),200-Math.sin(-28/30*Math.PI)*100);
+					context.stroke();
+					context.moveTo((200+Math.cos(-29/30*Math.PI)*90),200-Math.sin(-29/30*Math.PI)*90);
+					context.lineTo((200+Math.cos(-29/30*Math.PI)*100),200-Math.sin(-29/30*Math.PI)*100);
+					context.closePath();
+					context.stroke();
+					context.restore();
+					context.moveTo(204,200)
+					context.arc(200,200,4,0,Math.PI*2,true)	;
+					context.stroke();
+					context.save();
+					context.fillStyle = "goldenrod";
+					context.beginPath();
+					context.translate(200,200);
+					context.rotate(deg)
+					context.moveTo((+Math.sin(1/8*Math.PI)*4),-Math.cos(1/8*Math.PI)*4);
+					context.lineTo((+Math.sin(1/8*Math.PI)*4),-Math.cos(1/8*Math.PI)*4-10);
+					context.lineTo((+Math.sin(1/8*Math.PI)*4)+2,-Math.cos(1/8*Math.PI)*4-10);
+					context.lineTo((+Math.sin(1/8*Math.PI)*4)+2,-Math.cos(1/8*Math.PI)*4-70);
+					context.lineTo((+Math.sin(1/8*Math.PI)*4)-2,-Math.cos(1/8*Math.PI)*4-80);
+					context.stroke();
+					context.moveTo((-Math.sin(1/8*Math.PI)*4),-Math.cos(1/8*Math.PI)*4);
+					context.lineTo((-Math.sin(1/8*Math.PI)*4),-Math.cos(1/8*Math.PI)*4-10);
+					context.lineTo((-Math.sin(1/8*Math.PI)*4)-2,-Math.cos(1/8*Math.PI)*4-10);
+					context.lineTo((-Math.sin(1/8*Math.PI)*4)-2,-Math.cos(1/8*Math.PI)*4-70);
+					context.lineTo((-Math.sin(1/8*Math.PI)*4)+2,-Math.cos(1/8*Math.PI)*4-80);
+					context.fill()
+					context.stroke();
+					context.closePath();
+					
+					context.restore();
+					context.save();
+					context.translate(200,200)
+					context.rotate(deg2)
+					context.fillStyle = "goldenrod";
+					context.beginPath();
+					context.moveTo((+Math.cos(1/8*Math.PI)*4),-Math.sin(1/8*Math.PI)*4);
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+10,-Math.sin(1/8*Math.PI)*4)
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+10,-Math.sin(1/8*Math.PI)*4-2)
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+40,-Math.sin(1/8*Math.PI)*4-2)
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+50,-Math.sin(1/8*Math.PI)*4+2)
+					context.stroke();
+					context.moveTo((+Math.cos(1/8*Math.PI)*4),+Math.sin(1/8*Math.PI)*4);
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+10,+Math.sin(1/8*Math.PI)*4)
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+10,+Math.sin(1/8*Math.PI)*4+2)
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+40,+Math.sin(1/8*Math.PI)*4+2)
+					context.lineTo((+Math.cos(1/8*Math.PI)*4)+50,+Math.sin(1/8*Math.PI)*4-2)
+					context.stroke();
+					context.fill()
+					context.restore();
+					context.closePath();
+					
+					context.save();
+					context.font = "normal 8px 微软雅黑"
+					context.fillStyle = "black"
+					context.fillText("Daniel Wellington",170,160);
+					context.restore()
+					
+					context.save();
+					context.font = "normal 12px 微软雅黑"
+					context.fillStyle = "black"
+					context.fillText("W",200,150);
+					context.restore()
+					
+					context.save();
+					context.translate(250,250)
+					context.rotate(Math.PI)
+					context.font = "normal 12px 微软雅黑"
+					context.fillStyle = "black"
+					context.fillText("D",51,109);
+					context.restore()
+				}
+				var date = new Date();
+				var hour = date.getHours();
+				var minutes = date.getMinutes();
+				if(hour>12){
+					hour = hour-12
+				}
+				var deg = Math.PI/1800*60*minutes;
+				var deg2 = Math.PI/21600*60*60*hour+(Math.PI/21600*60*minutes);
+				console.log(deg2);
+				setInterval(function(){
+					clock(deg,deg2-Math.PI/2);
+					deg += Math.PI/1800
+					deg2 += Math.PI/21600;
+				},1000)
+   			</script>
+		</canvas>
+	</body>
+</html>

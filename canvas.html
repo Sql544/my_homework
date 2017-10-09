@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="700" height="500">
+			<script>
+				var canvas = document.getElementById("mycanvas");
+				var ctx = canvas.getContext("2d");
+				ctx.fillStyle = "red";
+				ctx.strokeStyle = "aqua";
+				ctx.rect(100,100,50,20);
+				ctx.stroke();
+				ctx.fill();
+				ctx.beginPath();
+				ctx.arc(300,300,100,(1/6)*Math.PI,(5/6)*Math.PI,true);
+				ctx.fillStyle = "salmon";
+				ctx.fill();
+				ctx.closePath();
+			</script>
+		</canvas>
+	</body>
+</html>
